@@ -9,7 +9,7 @@ The main reason for performing this is for compliance reasons, as the `default` 
 - Open a terminal window
 - Navigate to the parent directory containing the `revoke_default_sgs.py` script
 - Login (or be logged into) to your AWS account and set the AWS region in which you wish to execute this script
-- Run the following command `python clean_default_sgs.py`
+- Run the following command `python revoke_default_sgs.py`
 - The script will then remove any associated ingress/egress rules for all security groups named `default`
 - **NOTE**: The script will handle default security groups not having ingress or egress rules to be revoked
 - **NOTE**: A user cannot define a security group with a **group name** of `default`, this ensures that the default security group is compliant and secure for every VPC within an account
