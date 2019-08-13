@@ -18,7 +18,7 @@ if __name__ == "__main__":
         try:
             security_group_obj.revoke_ingress(
                 IpPermissions=security_group_obj.ip_permissions)
-            print("[Security Group: {}] Ingress rules have been deleted".format(group_id))
+            print("[Security Group: {}] All detected ingress rules have been removed".format(group_id))
         except ClientError as e:
             if e.response['Error']['Code'] == 'MissingParameter':
                 print("[Security Group: {}] No ingress rules to be removed".format(group_id))
@@ -29,7 +29,7 @@ if __name__ == "__main__":
         try:
             security_group_obj.revoke_egress(
                 IpPermissions=security_group_obj.ip_permissions_egress)
-            print("[Security Group: {}] Egress rules have been deleted".format(group_id))
+            print("[Security Group: {}] All detected egress rules have been removed".format(group_id))
         except ClientError as e:
             if e.response['Error']['Code'] == 'MissingParameter':
                 print("[Security Group: {}] No egress rules to be removed".format(group_id))
