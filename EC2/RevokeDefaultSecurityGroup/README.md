@@ -4,12 +4,14 @@ This is a very simple and straightforward python script that will remove all ing
 
 The main reason for performing this is for compliance reasons, as the `default` security group should generally never be used for AWS services and should be subsequently locked down by default.
 
+While AWS will restrict all ingress traffic, the egress rule will allow full external connectivity. As part of general compliance, the only rule that needs to be amended is the egress, however by removing both rules the default security groups will be essentially useless without intervention and likely to produce audit logging if certain parties make amendments.
+
 ## How to use it
 
 - Open a terminal window
-- Navigate to the parent directory containing the `revoke_default_sgs.py` script
+- Navigate to the parent directory containing the `script.py` file
 - Login (or be logged into) to your AWS account and set the AWS region in which you wish to execute this script
-- Run the following command `python revoke_default_sgs.py`
+- Run the following command `python script.py`
 - The script will then remove any associated ingress/egress rules for all security groups named `default`
 - **NOTE**: The script will handle default security groups not having ingress or egress rules to be revoked
 - **NOTE**: A user cannot define a security group with a **group name** of `default`, this ensures that the default security group is compliant and secure for every VPC within an account

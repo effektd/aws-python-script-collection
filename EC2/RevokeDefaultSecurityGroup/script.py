@@ -4,15 +4,15 @@ from botocore.exceptions import ClientError
 
 if __name__ == "__main__":
 
-    client = boto3.client('ec2')
-    ec2 = boto3.resource('ec2')
+    ec2_client = boto3.client('ec2')
+    ec2_resource = boto3.resource('ec2')
 
-    default_security_groups = client.describe_security_groups(
+    default_security_groups = ec2_client.describe_security_groups(
         Filters=[{'Name': 'group-name', 'Values': ['default']}])
 
     for default_group in default_security_groups['SecurityGroups']:
         group_id = default_group['GroupId']
-        security_group_obj = ec2.SecurityGroup(group_id)
+        security_group_obj = ec2_resource.SecurityGroup(group_id)
 
         # Revoke All Ingress
         try:
