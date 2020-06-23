@@ -4,13 +4,13 @@ This is a very simple and straightforward python script that will migrate an AWS
 
 You can place as many targets as you like in the `source_ids.txt` file, however they must be each on a new line. You may also mix and match between id types.
 
-**NOTE**: It is generally not recommended to move both organisationtial units and accounts in the same execution (unless you know what you're doing)
+**NOTE**: It is generally not recommended to move both organisational units and accounts in the same execution (unless you know what you're doing)
 
 ## How to use it
 
 - Navigate to the parent directory containing `script.py`
 - Populate the `source_ids.txt` file with the entities you wish to migrate
-- Login to your AWS Organisations master/root account with sufficent privlidges
+- Login to your AWS Organisations master/root account with sufficient privileges
 - You need to pass in the desired destination/target for your source ids to be migrated to
 - Run the following command `python script.py <target id>`
     - Example `python script.py ou-zfdp-88qel781`
